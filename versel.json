@@ -1,0 +1,16 @@
+{
+    "builds": [{
+        "src": "weather_project/wsgi.py",
+        "use": "@ardnt/vercel-python-wsgi",
+        "config": { "maxLambdaSize": "15mb","runtime":"python 3.9" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "weather_project/wsgi.py"
+        }
+    ],
+    "rewrites": [
+        { "source": "/(.*)", "destination": "templates/index.html" }
+    ]
+}
